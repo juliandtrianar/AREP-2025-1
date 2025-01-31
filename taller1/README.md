@@ -60,8 +60,8 @@ Una vez muestra en la línea de comandos el mensaje **Listo para recibir ...**, 
 ```
 
 Debería ver en pantalla lo siguiente:
+![image](https://github.com/user-attachments/assets/4c1c4135-37dc-441e-9aeb-b520a63f165b)
 
-![image](src/Image/pagina.png)
 ---
 ### Corriendo test
 
@@ -70,7 +70,8 @@ Ejecutamos el comando
 	mvn test
 
 ---
-![image](src/Image/test.png)
+![image](https://github.com/user-attachments/assets/db1e7eec-3b4f-42d1-b787-1886f5c58682)
+
 
 ## Construido con
 
