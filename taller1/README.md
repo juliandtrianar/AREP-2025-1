@@ -31,7 +31,7 @@ Java 19: Java es un lenguaje de programación de propósito general orientado a 
 2. Navegue al directorio del proyecto:
 
 ```
-	 cd taller1
+	 cd AREP-2025-1/taller1
 ```
 
 3. Ejecute el siguiente comando para compilar el código:
