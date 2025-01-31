@@ -30,25 +30,34 @@ Java 19: Java es un lenguaje de programación de propósito general orientado a 
 ```
 2. Navegue al directorio del proyecto:
 
+```
 	 cd taller1
+```
 
 3. Ejecute el siguiente comando para compilar el código:
 
-      ``` mvn compile ```
+```
+    mvn compile
+```
 5.  Ejecute el siguiente comando para empaquetar el proyecto:
    
-      ``` mvn package ```
+```
+mvn package
+```
 6. Para iniciar el servidor, ejecute el siguiente comando:
 
-    ``` java -cp target/LAB1_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.HttpServer ```
+```
+ java -cp target/LAB1_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.HttpServer
+```
 ---
 7. Verifique en la linea de comanos que se imprimió el mensaje **Listo para recibir ...**
 
 ## Probando la Aplicación.  
 
 Una vez muestra en la línea de comandos el mensaje **Listo para recibir ...**, se puede ingresar a la aplicación en cualquier navegador con la siguiente URL:
-
+```
        http://localhost:35000/index.html
+```
 
 Debería ver en pantalla lo siguiente:
 
