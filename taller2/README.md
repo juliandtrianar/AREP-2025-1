@@ -40,13 +40,15 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
    
       ```
     cd taller2
-       ```
+
+   ```
 
 5. Ejecute el siguiente comando para compilar el código:
 
       ```
    mvn compile
-       ```
+
+    ```
 
 7.  Ejecute el siguiente comando para empaquetar el proyecto:
    
