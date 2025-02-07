@@ -25,7 +25,7 @@ Java 19: Java es un lenguaje de programación de propósito general orientado a 
 1. Ubíquese sobre el directorio donde desea realizar la descarga y ejecute el siguiente comando:
 
 ```
-   git clone https://github.com/juliandtrianar/AREP-2015-1.git
+   git clone https://github.com/juliandtrianar/AREP-2025-1.git
 
 ```
 2. Navegue al directorio del proyecto:
