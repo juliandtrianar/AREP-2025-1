@@ -32,13 +32,14 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 1. Ubíquese sobre el directorio donde desea realizar la descarga y ejecute el siguiente comando:
    
      ```
-    git clone
+       git clone https://github.com/juliandtrianar/AREP-2025-1.git
+
      ```
 
 3. Navegue al directorio del proyecto:
    
       ```
-    cd
+    cd taller2
        ```
 
 5. Ejecute el siguiente comando para compilar el código:
@@ -61,6 +62,7 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 
 10. Verifique en la linea de comandos que se imprimió el mensaje **Listo para recibir ...**
    
+![image](https://github.com/user-attachments/assets/0f70e891-3e3a-40b0-a0c2-1885feedb62a)
 
 
 
@@ -120,13 +122,16 @@ Por defecto, los servicios estarán disponibles en la ruta `http://localhost:350
 
 Puede asignar una carpeta  que sirve archivos estáticos con el método `MySpark.setLocation`, si por ejemplo, el directorio es configurado en `/public`, Un archivo /public/css/style.css está disponible como `http://{host}:{port}/css/style.css`.
 
+![image](https://github.com/user-attachments/assets/4ee2f8cd-af81-4d05-aa7e-6322497d70f3)
 
 Entrega archivos estáticos como páginas HTML, CSS, JS e imágenes:
+![image](https://github.com/user-attachments/assets/9dd5d5f6-5ffd-42f1-8132-a86e9c11b2eb)
 
 
 Si no se encuentra el archivo en el directorio especificado, se mostrará un mensaje de error:
 
 
+![image](https://github.com/user-attachments/assets/1f444280-d349-49b2-a298-265dd5614326)
 
 
 ### GET
@@ -135,17 +140,21 @@ La clase `mySpark` ofrece el servicio get, se desarrollaron los siguientes ejemp
 
 `/hi`retorna un mensaje que incluye la ruta del URI recibido en la solicitud:
 
+![image](https://github.com/user-attachments/assets/2d9aa23d-6883-44a6-9df8-5b39303e1811)
 
 
 `/users` interpreta los parámetros de la consulta del URI para mostrar un mensaje personalizado.
 
+![image](https://github.com/user-attachments/assets/02c0ff21-4b53-4010-b7f9-faed31ef1498)
 
 
 `/movies` realiza una solicitud a una API de películas utilizando el título proporcionado en los parámetros de la consulta del URI y devuelve la respuesta en formato JSON.
 
+![image](https://github.com/user-attachments/assets/6dc55409-980e-43d8-88e1-c74b164a457a)
 
 
 Este mismo servicio puede ser usado por clientes web para dar un mejor formato a la salida de la consulta:
+![image](https://github.com/user-attachments/assets/387e8746-0950-4ab3-a2ba-94549289775f)
 
 
 ### POST
@@ -154,28 +163,17 @@ La clase `mySpark` ofrece el servicio post. Se desarrolló el siguiente ejemplo:
 
 Se implementó un servicio sencillo para enviar al servidor solicitudes POST para la creación de productos:
 
+![image](https://github.com/user-attachments/assets/84a9a4db-b78b-4cdd-a100-54403e53e54e)
 
 
 El servidor retorna el JSON del producto creado:
+![image](https://github.com/user-attachments/assets/7a0cd935-2752-475a-82d2-9b474ff683cc)
 
 
 
 Podemos acceder a todos los productos al acceder al servicio get con ruta `/products`
 
-
-
-La demostración anterior se ejecutó sobre el sistema operativo Windows, a continuación, se ejecutará el servidor web en una máquina virtual con sistema operativo Kali Linux:
-
-
-
-Realizamos solicitudes para comprobar el correcto funcionamiento.
-
-Archivos estáticos:
-
-
-Servicio GET:
-
-
+![image](https://github.com/user-attachments/assets/e30c8d25-5454-4cff-b666-d58e97150a7a)
 
 
 ## Ejecutando las Pruebas.  
@@ -190,6 +188,7 @@ A continuación se muestra cómo ejecutar las pruebas desde la línea de comando
  ```
 3. Debe mostrarse en pantalla que las pruebas fueron exitosas.
 
+![image](https://github.com/user-attachments/assets/2969aa4b-3e06-4cbe-b574-69b243ddc2f9)
 
 
 
@@ -204,7 +203,7 @@ A continuación se muestra cómo ejecutar las pruebas desde la línea de comando
 
 1.0.0
 
-## Autores
+## Autor
 
 - Julián David Triana Roa
 
