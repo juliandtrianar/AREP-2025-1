@@ -1,6 +1,5 @@
 
-# AREP-2025-1
-=======
+
 # MICROFRAMEWORKS WEB
 
 En este taller se construyó un servidor web para soportar una funcionalidad similar a la de SparkJava, un microframework WEB que permite construir aplicaciones web de manera simple usando funciones lambda.
@@ -32,30 +31,39 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 
 1. Ubíquese sobre el directorio donde desea realizar la descarga y ejecute el siguiente comando:
    
-     ``` git clone  ```
+     ```
+    git clone
+     ```
 
-2. Navegue al directorio del proyecto:
+3. Navegue al directorio del proyecto:
    
-      ``` cd   ```
+      ```
+    cd
+       ```
 
-3. Ejecute el siguiente comando para compilar el código:
+5. Ejecute el siguiente comando para compilar el código:
 
-      ``` mvn compile ```
+      ```
+   mvn compile
+       ```
 
-5.  Ejecute el siguiente comando para empaquetar el proyecto:
+7.  Ejecute el siguiente comando para empaquetar el proyecto:
    
-      ``` mvn package ``` 
+      ```
+    mvn package
+      ``` 
 
-6. Para iniciar el servidor, ejecute el siguiente comando:
+9. Para iniciar el servidor, ejecute el siguiente comando:
 
-    ``` java -cp target/LAB2_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.MyServices ```
+    ```
+    java -cp target/LAB2_AREP-1.0-SNAPSHOT.jar edu.escuelaing.arep.app.MyServices
+    ```
 
-7. Verifique en la linea de comanos que se imprimió el mensaje **Listo para recibir ...**
+10. Verifique en la linea de comandos que se imprimió el mensaje **Listo para recibir ...**
    
-![
 
 
-9. De igual forma, puede abrir el proyecto con un IDE y ejecutar el método main de la clase `MyServices`. En la imagen siguiente se muestra el proyecto con el IDE IntelliJ:
+
 
 
 
