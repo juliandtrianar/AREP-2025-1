@@ -61,7 +61,8 @@ Una vez muestra en la línea de comandos el mensaje **Listo para recibir ...**, 
 
 Debería ver en pantalla lo siguiente:
 
-![image](src/Image/pagina.png)
+![image](https://github.com/user-attachments/assets/ade5225c-01f7-454c-9c10-ad841f82eae5)
+
 ---
 ### Corriendo test
 
@@ -70,7 +71,8 @@ Ejecutamos el comando
 	mvn test
 
 ---
-![image](src/Image/test.png)
+![image](https://github.com/user-attachments/assets/59e3c1b3-3419-448b-9251-94d1e62f6371)
+
 
 ## Construido con
 
