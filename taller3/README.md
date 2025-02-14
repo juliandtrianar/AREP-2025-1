@@ -41,8 +41,8 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 3. Ejecute el siguiente comando para compilar el código:
 
       ```
-       mvn compile 
-       ```
+       mvn compile
+      ```
 
 5.  Ejecute el siguiente comando para empaquetar el proyecto:
    
