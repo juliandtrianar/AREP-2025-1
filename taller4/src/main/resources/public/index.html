@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de productos</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="container">
+
+    <h2>Seno</h2>
+    <form action="/sin" method="get">
+        <label for="sin">Valor:</label>
+        <input type="text" id="sin" name="x">
+    </form>
+    <input type="button" value="Search" onclick="loadGetSinMsg()">
+    <div id="sinmsg"></div>
+
+
+    <h2>Coseno</h2>
+    <form action="/cos" method="get">
+        <label for="cos">Valor:</label>
+        <input type="text" id="cos" name="x">
+    </form>
+    <input type="button" value="Search" onclick="loadGetCosMsg()">
+    <div id="cosmsg"></div>
+
+
+    <h2>Palíndromo</h2>
+    <form action="/palindrome" method="get">
+        <label for="palindrome">Valor:</label>
+        <input type="text" id="palindrome" name="x">
+    </form>
+    <input type="button" value="Search" onclick="loadGetPalMsg()">
+    <div id="palmsg"></div>
+
+    <h2>Vector</h2>
+    <form action="/vector" method="get">
+        <label for="vector1">P1:</label>
+        <input type="text" id="vector1" name="x" value="x1,y1">
+        <label for="vector2">P2:</label>
+        <input type="text" id="vector2" name="y" value="x2,y2">
+    </form>
+    <input type="button" value="Search" onclick="loadGetVectMsg()">
+    <div id="vectorpmsg"></div>
+
+</div>
+<script src="js/api.js"></script>
+</body>
+</html>
