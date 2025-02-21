@@ -34,7 +34,8 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 
 2. Ejecute el siguiente comando para descargar la imagen del repositorio de docker:
    
-     ``` docker run -d -p 34000:46000 --name unruffled_blackburn dockersparkprimer
+     ```
+      docker run -d -p 34000:46000 --name unruffled_blackburn dockersparkprimer
      ```
 
    Debería ver algo así en consola:
@@ -68,13 +69,15 @@ Las siguientes instrucciones le permitirán descargar una copia y ejecutar la ap
 
 5.  Ejecute el siguiente comando para empaquetar el proyecto:
    
-      ``` 
+      ```
+      
       mvn package 
       ``` 
 
 6. Para iniciar el servidor, ejecute el siguiente comando:
 
-    ``` java -cp "target/classes;target/dependency/*" org.eci.arep.app.SparkWebServer 
+    ```
+    java -cp "target/classes;target/dependency/*" org.eci.arep.app.SparkWebServer 
     ```
 
 7. Verifique en la linea de comandos que se está ejecutando la aplicación:
