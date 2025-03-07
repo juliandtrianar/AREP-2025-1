@@ -33,12 +33,13 @@ Para ejecutar este proyecto, necesitarás tener instalado:
 5. Navegue al directorio del proyecto:
    
       ``` 
-      cd taller4
+      cd taller5
       ```
 6. **IMPORTANTE**: 
    - En application.properties tiene que cambiar el usuario en ***spring.datasource.username*** por root o por un usuario que tenga predefinido.
    - En **spring.datasource.password** cambié la contraseña por su contraseña de base de datos.
-   - Finalmente, cambie su IP en **spring.datasource.url** por localhost o una específica como las de AWS y no olvide que la base se llama arep. 
+   - Finalmente, cambie su IP en **spring.datasource.url** por localhost o una específica como las de AWS y no olvide que la base se llama arep.
+     
  ![image](https://github.com/user-attachments/assets/a907b6f3-0c1b-49e5-844e-3ddcc160f56c)
 
 
