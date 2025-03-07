@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de propiedades Inmobiliarias</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px; /* Ancho máximo reducido */
+            margin: auto; /* Centrado */
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <h2 class="text-center">Listar Propiedades Inmobiliarias</h2>
+
+    <table class="table table-bordered" id="entityTable">
+        <thead class="thead-light">
+        <tr>
+            <th>ID</th>
+            <th>Dirección</th>
+            <th>Tamaño</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Las filas se llenarán aquí con JavaScript -->
+        </tbody>
+    </table>
+    <h2 class="mt-4">Filtrar Propiedades Inmobiliarias</h2>
+    <div class="form-group">
+        <label for="filterCriteria">Filtrar por:</label>
+        <select id="filterCriteria" class="form-control">
+            <option value="address">Dirección</option>
+            <option value="size">Tamaño</option>
+            <option value="price">Precio</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" id="filterValue" class="form-control" placeholder="Valor a filtrar">
+    </div>
+    <button class="btn btn-secondary btn-block" onclick="filtrarEntidades()">Filtrar</button>
+
+
+    <h2 class="mt-4">Agregar Propiedades Inmobiliarias</h2>
+    <form id="addEntityForm" action="/agregar" method="post" onsubmit="agregarEntidad(event)">
+        <div class="form-group">
+            <input type="text" name="address" class="form-control" placeholder="Dirección" required>
+        </div>
+        <div class="form-group">
+            <input type="number" name="size" class="form-control" placeholder="Tamaño" required>
+        </div>
+        <div class="form-group">
+            <input type="number" name="price" class="form-control" placeholder="Precio" required>
+        </div>
+        <div class="form-group">
+            <input type="text" name="description" class="form-control" placeholder="Descripción" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Agregar</button>
+    </form>
+
+    <h2 class="mt-4">Actualizar Propiedades Inmobiliarias</h2>
+    <form id="updateEntityForm" onsubmit="actualizarEntidad(event)">
+        <div class="form-group row">
+            <label for="updateId" class="col-sm-3 col-form-label">ID</label>
+            <div class="col-sm-9">
+                <input type="text" id="updateId" class="form-control" placeholder="ID" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="updateAddress" class="col-sm-3 col-form-label">Dirección</label>
+            <div class="col-sm-9">
+                <input type="text" id="updateAddress" class="form-control" placeholder="Dirección" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="updateSize" class="col-sm-3 col-form-label">Tamaño</label>
+            <div class="col-sm-9">
+                <input type="number" id="updateSize" class="form-control" placeholder="Tamaño" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="updatePrice" class="col-sm-3 col-form-label">Precio</label>
+            <div class="col-sm-9">
+                <input type="number" id="updatePrice" class="form-control" placeholder="Precio" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="updateDescription" class="col-sm-3 col-form-label">Descripción</label>
+            <div class="col-sm-9">
+                <input type="text" id="updateDescription" class="form-control" placeholder="Descripción" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+    </form>
+</div>
+
+<!-- Modal para mostrar mensajes -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">Mensaje</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalMessage">
+                <!-- Mensaje será insertado aquí -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function mostrarMensaje(mensaje, exito) {
+        const modalMessage = document.getElementById('modalMessage');
+        modalMessage.innerHTML = exito
+            ? `<i class="fas fa-check-circle text-success"></i> ${mensaje}`
+            : `<i class="fas fa-times-circle text-danger"></i> ${mensaje}`;
+        $('#messageModal').modal('show'); // Muestra el modal
+    }
+function filtrarEntidades() {
+    const criteria = document.getElementById('filterCriteria').value; // Obtener el criterio seleccionado
+    const value = document.getElementById('filterValue').value; // Obtener el valor ingresado
+
+    const queryParams = new URLSearchParams();
+    if (value) queryParams.append(criteria, value); // Agregar el parámetro basado en el criterio
+
+    fetch(`/api/entidades?${queryParams.toString()}`) // Realizar la solicitud
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.querySelector('#entityTable tbody');
+            tableBody.innerHTML = '';
+
+            // Filtrar las entidades en el lado del cliente
+            const filteredEntities = data.filter(entidad => {
+                // Si el valor está vacío, mostrar todas las entidades
+                if (!value) {
+                    return true; // Siempre devuelve true para que todas las entidades sean visibles
+                }
+
+                // Compara el criterio seleccionado con el valor ingresado
+                if (criteria === 'price' || criteria === 'size') {
+                    return entidad[criteria].toString() === value; // Comparación exacta para precio y tamaño
+                } else if (criteria === 'address') {
+                    return entidad[criteria] === value; // Comparación exacta para dirección
+                }
+                return false; // No se encuentra coincidencia si no coincide con ningún criterio
+            });
+
+            // Mostrar las entidades filtradas en la tabla
+            filteredEntities.forEach(entidad => {
+                const row = `<tr>
+                    <td>${entidad.id}</td>
+                    <td>${entidad.address}</td>
+                    <td>${entidad.size}</td>
+                    <td>${entidad.price}</td>
+                    <td>${entidad.description}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="eliminarEntidad(${entidad.id})">Eliminar</button>
+                        <button class="btn btn-info btn-sm" onclick="cargarDatos(${entidad.id}, '${entidad.address}', ${entidad.size}, ${entidad.price}, '${entidad.description}')">Actualizar</button>
+                    </td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            mostrarMensaje('Error al filtrar las propiedades inmobiliarias', false);
+        });
+}
+
+
+
+    function agregarEntidad(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fetch(event.target.action, { method: 'POST', body: formData })
+            .then(response => {
+                if (response.ok) {
+                    obtenerEntidades();
+                    event.target.reset();
+                    mostrarMensaje('propiedades inmobiliaria agregada con éxito!', true);
+                } else {
+                    mostrarMensaje('Error al agregar la propiedades inmobiliaria.', false);
+                }
+            });
+    }
+
+    function obtenerEntidades() {
+        fetch('/api/entidades')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.querySelector('#entityTable tbody');
+                tableBody.innerHTML = '';
+                data.forEach(entidad => {
+                    const row = `<tr>
+                        <td>${entidad.id}</td>
+                        <td>${entidad.address}</td>
+                        <td>${entidad.size}</td>
+                        <td>${entidad.price}</td>
+                        <td>${entidad.description}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="eliminarEntidad(${entidad.id})">Eliminar</button>
+                            <button class="btn btn-info btn-sm" onclick="cargarDatos(${entidad.id}, '${entidad.address}', ${entidad.size}, ${entidad.price}, '${entidad.description}')">Actualizar</button>
+                        </td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            });
+    }
+
+    function cargarDatos(id, address, size, price, description) {
+        document.getElementById('updateId').value = id;
+        document.getElementById('updateAddress').value = address;
+        document.getElementById('updateSize').value = size;
+        document.getElementById('updatePrice').value = price;
+        document.getElementById('updateDescription').value = description;
+    }
+
+    function actualizarEntidad(event) {
+        event.preventDefault();
+        const id = document.getElementById('updateId').value;
+        const formData = {
+            address: document.getElementById('updateAddress').value,
+            size: document.getElementById('updateSize').value,
+            price: document.getElementById('updatePrice').value,
+            description: document.getElementById('updateDescription').value
+        };
+
+        fetch(`/actualizar/${id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                obtenerEntidades();
+                event.target.reset();
+                document.getElementById('updateId').value = '';
+                mostrarMensaje('propiedades inmobiliaria actualizada con éxito!', true);
+            } else {
+                mostrarMensaje('Error al actualizar la propiedades inmobiliaria, seleccione una propiedad.', false);
+            }
+        });
+    }
+
+    function eliminarEntidad(id) {
+        fetch(`/eliminar/${id}`, { method: 'DELETE' })
+            .then(response => {
+                if (response.ok) {
+                    obtenerEntidades();
+                    mostrarMensaje('propiedades inmobiliaria eliminada con éxito!', true);
+                } else {
+                    mostrarMensaje('Error al eliminar la propiedades inmobiliaria.', false);
+                }
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', obtenerEntidades);
+</script>
+
+</body>
+</html>
