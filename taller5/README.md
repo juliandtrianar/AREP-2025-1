@@ -26,8 +26,9 @@ Para ejecutar este proyecto, necesitarás tener instalado:
 2. Elegir una carpeta en donde guardes tu proyecto
 3. abrir la terminal de GIT --> mediante el click derecho seleccionas Git bash here
 4. Clona el repositorio en tu máquina local:
+
    ```
- git clone https://github.com/juliandtrianar/AREP-2025-1.git
+   git clone https://github.com/juliandtrianar/AREP-2025-1.git
    ```
 5. Navegue al directorio del proyecto:
    
