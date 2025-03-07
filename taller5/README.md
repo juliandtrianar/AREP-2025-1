@@ -29,11 +29,17 @@ Para ejecutar este proyecto, necesitarás tener instalado:
    ```bash
  git clone https://github.com/juliandtrianar/AREP-2025-1.git
    ```
-5. **IMPORTANTE**: 
+5. Navegue al directorio del proyecto:
+   
+      ``` 
+      cd taller4
+      ```
+6. **IMPORTANTE**: 
    - En application.properties tiene que cambiar el usuario en ***spring.datasource.username*** por root o por un usuario que tenga predefinido.
    - En **spring.datasource.password** cambié la contraseña por su contraseña de base de datos.
    - Finalmente, cambie su IP en **spring.datasource.url** por localhost o una específica como las de AWS y no olvide que la base se llama arep. 
- 
+ ![image](https://github.com/user-attachments/assets/a907b6f3-0c1b-49e5-844e-3ddcc160f56c)
+
 
 ## Deployment
 1. Abre los dos proyectos con tu IDE favorito o navega hasta el directorio del proyecto
@@ -51,7 +57,8 @@ Verá que el servidor está listo y corriendo sobre el puerto 8080
 
 4. Puedes interactuar con los endpoints RESTful API con:
     - http://localhost:8080/agregar
-    
+    ![image](https://github.com/user-attachments/assets/6961704f-c0a2-4a89-910d-5f41f3eda0d0)
+
    
 
 
@@ -99,10 +106,9 @@ El proyecto incluye pruebas unitarias que simulan el comportamiento del servicio
         assertEquals("casa amoblada", entidadCapturada.getDescription());
     }
 
-      
    ```
 
-
+![image](https://github.com/user-attachments/assets/1239b3a6-0eb8-4761-b0de-d0ff79db1a35)
 
 
 ## Built With
