@@ -175,7 +175,7 @@ Seguridad de los endpoints:
 
 ## Video Despliegue en AWS
 
-
+[![Ver Video](https://drive.google.com/thumbnail?id=1wHzMNcL4qj1-vxmAXRMYiRHhb7tuG3cs)](https://drive.google.com/file/d/1wHzMNcL4qj1-vxmAXRMYiRHhb7tuG3cs/view?usp=sharing)
 
 
 
